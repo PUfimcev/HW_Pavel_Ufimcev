@@ -82,7 +82,6 @@ function getEvenNums(){
         if (i % 2 == 0) continue;
         oddNums += i + ' ';
     } 
-
     let i = 8;
     while(i <= 56){
         if (!(i % 2)) evenNums += i + ' ';
@@ -93,7 +92,6 @@ function getEvenNums(){
 
 console.log(getEvenNums());
 console.log('\n');
-
 /*6. Необходимо вывести на экран полную таблицу умножения (от 2 до 10) в виде: 
 2*2 = 4 
 2*3 = 6 
@@ -116,9 +114,7 @@ function sheetMulty(){
             if(j == 10) num += '\n';
         }
     }
-
     return num;
-
 }
 
 console.log(sheetMulty());
