@@ -175,7 +175,7 @@ const user = new Contacts();
 user.add(data1);
 user.add(data2);
 user.add(data3);
-user.editContacts(1,{age: '-45', phoneNumber: '+375 29 000-00-00'});
+user.editContacts(1,{age: '45', phoneNumber: '+375 29 000-00-00'});
 // user.removeContact(1);
 user.getContacts();
 // user.getContacts(1);
