@@ -47,8 +47,8 @@ class Contact {
             
             if(newData.age <= 0) {
                 alert(`Incorrect editable ageage entered. Enter again`);
-                newData.age = '';
-                this.#contact = {...this.#contact, ...newData.age};
+                newData.age = '<span style="color: red;"><b>INCORRECT</b></span>';
+                this.#contact = {...this.#contact, ...newData};
             } else {
                 this.#contact = {...this.#contact, ...newData};
             }           
@@ -61,7 +61,7 @@ class Contact {
                 this.#contact = {...this.#contact, ...newData};
             } else {
                 alert(`Incorrect editable phone entered. Enter again`);
-                newData.phoneNumber = '';
+                newData.phoneNumber = '<span style="color: red;"><b>INCORRECT</b></span>';
                 this.#contact = {...this.#contact, ...newData};
             }
         }
@@ -73,7 +73,7 @@ class Contact {
                 this.#contact = {...this.#contact, ...newData};
             } else {
                 alert(`Incorrect editable email entered. Enter again`);
-                newData.email = '';
+                newData.email = '<span style="color: red;"><b>INCORRECT</b></span>';
                 this.#contact = {...this.#contact, ...newData};
             }
         }
@@ -123,12 +123,12 @@ class Contacts{
 
             // return electContact.getContact();
 
-            return document.write( `Имя: ${electContact.getContact().name}. <br/>
-                    Фамилия: ${electContact.getContact().lastName}. <br/>
-                    Возраст: ${electContact.getContact().age}. <br/>
-                    Контактный телефон: ${electContact.getContact().phoneNumber}.  <br/>
-                    Адрес эл.почты: ${electContact.getContact().email}. <br/> 
-                    <br/> `);
+            return document.write( `<pre>Имя:  <span style="font-style: italic; font-weight: bold;">${electContact.getContact().name}</span>
+Фамилия: <span style="font-style: italic; font-weight: bold;">${electContact.getContact().lastName}</span>
+Возраст: <span style="font-style: italic; font-weight: bold;">${electContact.getContact().age}</span>
+Контактный телефон: <span style="font-style: italic; font-weight: bold;">${electContact.getContact().phoneNumber}</span>
+Адрес эл.почты: <span style="font-style: italic; font-weight: bold;">${electContact.getContact().email}</span> 
+<br/></pre> `);
 
         } else if (id <= 0) {
             return alert(`Contact not found. Enter correct value of id`);
@@ -136,12 +136,12 @@ class Contacts{
 
         return this.#contacts.forEach(elem => { 
 
-        document.write( `Имя: ${elem.getContact().name}. <br/>
-                         Фамилия: ${elem.getContact().lastName}. <br/>
-                         Возраст: ${elem.getContact().age}. <br/>
-                         Контактный телефон: ${elem.getContact().phoneNumber}.  <br/>
-                         Адрес эл.почты: ${elem.getContact().email}. <br/> 
-                         <br/> `);
+        document.write( `<pre>Имя:  <span style="font-style: italic; font-weight: bold;">${elem.getContact().name}</span> 
+Фамилия:  <span style="font-style: italic; font-weight: bold;">${elem.getContact().lastName}</span> 
+Возраст:  <span style="font-style: italic; font-weight: bold;">${elem.getContact().age}</span> 
+Контактный телефон:  <span style="font-style: italic; font-weight: bold;">${elem.getContact().phoneNumber}</span> 
+Адрес эл.почты:  <span style="font-style: italic; font-weight: bold;">${elem.getContact().email}</span> 
+<br/></pre> `);
         });
     }
 }
@@ -175,7 +175,7 @@ const user = new Contacts();
 user.add(data1);
 user.add(data2);
 user.add(data3);
-user.editContacts(1,{age: '44', phoneNumber: '+375 29 000-00-00'});
+// user.editContacts(1,{age: '45', phoneNumber: '+375 29 000-00-00'});
 // user.removeContact(1);
 user.getContacts();
 // user.getContacts(1);
