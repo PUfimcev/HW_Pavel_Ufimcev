@@ -9,8 +9,12 @@ class Contact {
     };
     
     constructor(data){
-
         if(!data || (!data.name && !data.lastName && !data.age && !data.phoneNumber && !data.email)) return;
+        this.getContact = data;
+    }
+
+    set getContact(data){
+        if(!data) return;
         this.#contact.name = data.name;
         this.#contact.lastName = data.lastName;
 
@@ -81,7 +85,7 @@ class Contact {
         this.#contact = {...this.#contact, ...newData}
     }
 
-    getContact(){
+    get getContact(){
         return this.#contact;
     }
 }
@@ -96,7 +100,7 @@ class Contacts{
 
         const contact = new Contact(contactsData);
 
-        let contactKeyslength = Object.keys(contact.getContact());
+        let contactKeyslength = Object.keys(contact.getContact);
         if(contactKeyslength.length === 0) return;
         this.#id++;
         contact.id = this.#id;
@@ -123,11 +127,11 @@ class Contacts{
 
             // return electContact.getContact();
 
-            return document.write( `<pre>Имя:  <span style="font-style: italic; font-weight: bold;">${electContact.getContact().name}</span>
-Фамилия: <span style="font-style: italic; font-weight: bold;">${electContact.getContact().lastName}</span>
-Возраст: <span style="font-style: italic; font-weight: bold;">${electContact.getContact().age}</span>
-Контактный телефон: <span style="font-style: italic; font-weight: bold;">${electContact.getContact().phoneNumber}</span>
-Адрес эл.почты: <span style="font-style: italic; font-weight: bold;">${electContact.getContact().email}</span> 
+            return document.write( `<pre>Имя:  <span style="font-style: italic; font-weight: bold;">${electContact.getContact.name}</span>
+Фамилия: <span style="font-style: italic; font-weight: bold;">${electContact.getContact.lastName}</span>
+Возраст: <span style="font-style: italic; font-weight: bold;">${electContact.getContact.age}</span>
+Контактный телефон: <span style="font-style: italic; font-weight: bold;">${electContact.getContact.phoneNumber}</span>
+Адрес эл.почты: <span style="font-style: italic; font-weight: bold;">${electContact.getContact.email}</span> 
 <br/></pre> `);
 
         } else if (id <= 0) {
@@ -136,11 +140,11 @@ class Contacts{
 
         return this.#contacts.forEach(elem => { 
 
-        document.write( `<pre>Имя:  <span style="font-style: italic; font-weight: bold;">${elem.getContact().name}</span> 
-Фамилия:  <span style="font-style: italic; font-weight: bold;">${elem.getContact().lastName}</span> 
-Возраст:  <span style="font-style: italic; font-weight: bold;">${elem.getContact().age}</span> 
-Контактный телефон:  <span style="font-style: italic; font-weight: bold;">${elem.getContact().phoneNumber}</span> 
-Адрес эл.почты:  <span style="font-style: italic; font-weight: bold;">${elem.getContact().email}</span> 
+        document.write( `<pre>Имя:  <span style="font-style: italic; font-weight: bold;">${elem.getContact.name}</span> 
+Фамилия:  <span style="font-style: italic; font-weight: bold;">${elem.getContact.lastName}</span> 
+Возраст:  <span style="font-style: italic; font-weight: bold;">${elem.getContact.age}</span> 
+Контактный телефон:  <span style="font-style: italic; font-weight: bold;">${elem.getContact.phoneNumber}</span> 
+Адрес эл.почты:  <span style="font-style: italic; font-weight: bold;">${elem.getContact.email}</span> 
 <br/></pre> `);
         });
     }
@@ -175,7 +179,7 @@ const user = new Contacts();
 user.add(data1);
 user.add(data2);
 user.add(data3);
-user.editContacts(1,{age: '45', phoneNumber: '+375 29 000-00-00'});
+// user.editContacts(1,{age: '45', phoneNumber: '+375 29 000-00-00'});
 // user.removeContact(1);
 user.getContacts();
 // user.getContacts(1);
